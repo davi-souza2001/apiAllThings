@@ -1,1 +1,0 @@
-const beforeSolid = 'Antes do solid'
