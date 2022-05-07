@@ -16,3 +16,14 @@ model Feedback {
 
   @@map("feedbacks")
 }
+
+model User {
+  id Int @id @default(autoincrement())
+
+  email String
+  name String
+  imageUser String?
+  description String?
+
+  @@map("users")
+}
