@@ -2,7 +2,7 @@ import { SubmitUserServide } from './services/user/submit-user-service';
 import { PrismaUsers } from './repositories/prisma/prisma-users';
 import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapter';
 import { PrismaFeedbacksRepository } from './repositories/prisma/prisma-feedbacks-repository';
-import { SubmitFeedbackService } from './services/submit-feedback-service';
+import { SubmitFeedbackService } from './services/feedback/submit-feedback-service';
 import express from 'express';
 
 export const routes = express.Router();
