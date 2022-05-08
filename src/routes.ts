@@ -28,7 +28,7 @@ routes.post('/feedbacks', async (req, res) => {
 });
 
 routes.post('/user/create', async (req, res) => {
-    const { email, name, description, imageUser } = req.body;
+    const { email, password, name, description, imageUser } = req.body;
 
     const prismaUsers = new PrismaUsers();
 

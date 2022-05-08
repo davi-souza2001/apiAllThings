@@ -18,12 +18,12 @@ model User {
   @@map("users")
 }
 
-// model Feedback {
-//   id Int @id @default(autoincrement())
+model Feedback {
+  id Int @id @default(autoincrement())
 
-//   type       String
-//   comment    String
-//   screenshot String?
+  type       String
+  comment    String
+  screenshot String?
 
-//   @@map("feedbacks")
-// }
+  @@map("feedbacks")
+}
