@@ -4,3 +4,5 @@ build 1:36:06
 <!-- usar mailgun para email -->
 <!-- usar para deploy: 
 npx prisma migrate && npm run start -->
+
+<!-- asd -->
