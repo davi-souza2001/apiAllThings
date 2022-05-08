@@ -1,9 +1,10 @@
-import { SubmitUserServide } from './services/user/submit-user-service';
+import express from 'express';
+
+import { SubmitUserService } from './services/user/submit-user-service';
 import { PrismaUsers } from './repositories/prisma/prisma-users';
 import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapter';
 import { PrismaFeedbacksRepository } from './repositories/prisma/prisma-feedbacks-repository';
 import { SubmitFeedbackService } from './services/feedback/submit-feedback-service';
-import express from 'express';
 
 export const routes = express.Router();
 
@@ -28,11 +29,11 @@ routes.post('/feedbacks', async (req, res) => {
 });
 
 routes.post('/user/create', async (req, res) => {
-    const { email, password, name, description, imageUser } = req.body;
+    const { email, name, description, imageUser } = req.body;
 
     const prismaUsers = new PrismaUsers();
 
-    const submitUserService = new SubmitUserServide(prismaUsers);
+    const submitUserService = new SubmitUserService(prismaUsers);
 
     try {
         await submitUserService.executeCreate({

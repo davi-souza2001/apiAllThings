@@ -6,7 +6,7 @@ interface SubmitUserServiceRequest {
     description?: string
 }
 
-export class SubmitUserServide {
+export class SubmitUserService {
     constructor(
         private usersRepository: Users,
     ) { }
@@ -14,11 +14,11 @@ export class SubmitUserServide {
     async executeCreate(request: SubmitUserServiceRequest) {
         const { email, name, description, imageUser } = request
 
-        if (!email){
+        if (!email) {
             throw new Error('Seu email é obrigatório!')
         }
 
-        if (!name){
+        if (!name) {
             throw new Error('Seu nome é obrigatório!')
         }
 
