@@ -6,3 +6,6 @@ CREATE TABLE "users" (
     "imageUser" TEXT,
     "description" TEXT
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");

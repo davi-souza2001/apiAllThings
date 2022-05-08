@@ -7,23 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Feedback {
-  id Int @id @default(autoincrement())
-
-  type       String
-  comment    String
-  screenshot String?
-
-  @@map("feedbacks")
-}
-
 model User {
   id Int @id @default(autoincrement())
 
-  email       String
+  email       String @unique
   name        String
   imageUser   String?
   description String?
 
   @@map("users")
 }
+
+// model Feedback {
+//   id Int @id @default(autoincrement())
+
+//   type       String
+//   comment    String
+//   screenshot String?
+
+//   @@map("feedbacks")
+// }
