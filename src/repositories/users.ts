@@ -7,4 +7,5 @@ export interface UserCreateData{
 
 export interface Users{
     create: (data: UserCreateData) => Promise<void>
+    login: (data: string) => Promise<void>
 }

@@ -1,9 +1,14 @@
-import { SubmitUserServide } from '../user/submit-user-service';
+import { PrismaUsers } from '../../repositories/prisma/prisma-users';
+import { SubmitUserService } from '../user/submit-user-service';
 
 const createFeedbackSpy = jest.fn();
+const createLoginSpy = jest.fn();
 
-const submitUser = new SubmitUserServide(
-    { create: createFeedbackSpy }
+const submitUser = new SubmitUserService(
+    {
+        create: createFeedbackSpy,
+        login: createLoginSpy
+    }
 )
 describe('Submit user', () => {
     it('Should be able to submit a user', async () => {
@@ -36,5 +41,17 @@ describe('Submit user', () => {
             description: '',
             imageUser: ''
         })).rejects.toThrow();
+    })
+
+    it('Should not be able to login a user without email', async () => {
+        const email = ''
+
+        await expect(submitUser.login(email)).rejects.toThrow();
+    })
+
+    it('Should be able to login a user with email', async () => {
+        const email = 'asdasdas'
+
+        expect(submitUser.login(email)).resolves;
     })
 })

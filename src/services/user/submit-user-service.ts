@@ -1,4 +1,4 @@
-import { UserCreateData, Users } from '../../repositories/users';
+import { Users } from '../../repositories/users';
 interface SubmitUserServiceRequest {
     email: string,
     name: string,
@@ -28,5 +28,15 @@ export class SubmitUserService {
             description,
             imageUser
         })
+    }
+
+    async login(request: string) {
+        const email = request
+
+        if (!email) {
+            throw new Error('Seu email é obrigatório!')
+        }
+        
+        await this.usersRepository.login(email)
     }
 }
