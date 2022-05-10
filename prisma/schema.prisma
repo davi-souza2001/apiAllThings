@@ -10,12 +10,25 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
 
-  email       String @unique
+  email       String  @unique
   name        String
   imageUser   String?
   description String?
 
   @@map("users")
+  Page Page[]
+}
+
+model Page {
+  id Int @id @default(autoincrement())
+
+  name      String
+  levelType String
+  idUser    Int
+
+  user User @relation(fields: [idUser], references: [id])
+
+  @@map("pages")
 }
 
 model Feedback {

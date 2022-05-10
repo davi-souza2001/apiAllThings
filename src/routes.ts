@@ -1,3 +1,4 @@
+import { SubmitPageService } from './services/page/submit-page-service';
 import express from 'express';
 
 import { SubmitUserService } from './services/user/submit-user-service';
@@ -5,6 +6,8 @@ import { PrismaUsers } from './repositories/prisma/prisma-users';
 import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapter';
 import { PrismaFeedbacksRepository } from './repositories/prisma/prisma-feedbacks-repository';
 import { SubmitFeedbackService } from './services/feedback/submit-feedback-service';
+import { PrismaPages } from './repositories/prisma/prisma-pages';
+
 import { prisma } from './prisma';
 
 export const routes = express.Router();
@@ -83,6 +86,27 @@ routes.post('/user/login', async (req, res) => {
         return res.status(200).json({ message: user })
     } catch (error) {
 
+        console.log(error)
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+})
+
+routes.post('/page/create', async (req, res) => {
+    const { name, idUser, levelType } = req.body;
+
+    const prismaPages = new PrismaPages()
+
+    const submitpageService = new SubmitPageService(prismaPages)
+
+    try {
+        await submitpageService.executeCreate({
+            name,
+            idUser,
+            levelType
+        })
+
+        return res.status(201).json({ message: 'Página criada!' });
+    } catch (error) {
         console.log(error)
         return res.status(401).json({ message: 'Algo de errado não está certo!' });
     }
