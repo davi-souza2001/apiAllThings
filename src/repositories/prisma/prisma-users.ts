@@ -14,10 +14,12 @@ export class PrismaUsers implements Users {
     }
 
     async login(email: string) {
-        await prisma.user.findFirst({
+        const user = await prisma.user.findFirst({
             where: {
-                email: email
+                email
             }
         })
+
+        return user
     }
 }

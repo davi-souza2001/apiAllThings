@@ -1,3 +1,4 @@
+import { PrismaUsers } from '../../repositories/prisma/prisma-users';
 import { Users } from '../../repositories/users';
 interface SubmitUserServiceRequest {
     email: string,
@@ -30,13 +31,13 @@ export class SubmitUserService {
         })
     }
 
-    async login(request: string) {
-        const email = request
-
-        if (!email) {
+    async executeLogin(email: string) {
+        if (!email){
             throw new Error('Seu email é obrigatório!')
         }
-        
-        await this.usersRepository.login(email)
+
+        const user = await this.usersRepository.login(email)
+
+        return user
     }
 }

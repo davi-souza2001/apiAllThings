@@ -1,13 +1,12 @@
-import { SubmitPageService } from './services/page/submit-page-service';
 import express from 'express';
 
 import { SubmitUserService } from './services/user/submit-user-service';
+import { SubmitPageService } from './services/page/submit-page-service';
 import { PrismaUsers } from './repositories/prisma/prisma-users';
 import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-adapter';
 import { PrismaFeedbacksRepository } from './repositories/prisma/prisma-feedbacks-repository';
 import { SubmitFeedbackService } from './services/feedback/submit-feedback-service';
 import { PrismaPages } from './repositories/prisma/prisma-pages';
-
 import { prisma } from './prisma';
 
 export const routes = express.Router();
@@ -54,39 +53,22 @@ routes.post('/user/create', async (req, res) => {
     }
 })
 
-// routes.post('/user/login', async (req, res) => {
-//     const email = req.body.email;
-//     console.log(email)
-//     console.log('\n')
-//     const prismaUsers = new PrismaUsers();
-
-//     const submitUserService = new SubmitUserService(prismaUsers);
-
-//     try {
-//         const user = await submitUserService.login(email)
-
-//         return res.status(201).json({ message: user });
-//     } catch (error) {
-//         console.log(error)
-//         return res.status(401).json({ message: 'Algo de errado não está certo!' });
-//     }
-
-// })
-
 routes.post('/user/login', async (req, res) => {
     const email = req.body.email;
 
+    const prismaUsers = new PrismaUsers();
+
+    const submitUserService = new SubmitUserService(prismaUsers);
+
     try {
-        const user = await prisma.user.findUnique({
-            where: {
-                email
-            }
-        })
+        const user = await submitUserService.executeLogin(email);
 
-        return res.status(200).json({ message: user })
+        console.log('user vindo da rota CERTA!');
+
+        return res.status(201).json(user);
     } catch (error) {
-
         console.log(error)
+
         return res.status(401).json({ message: 'Algo de errado não está certo!' });
     }
 })
