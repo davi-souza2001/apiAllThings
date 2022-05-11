@@ -63,8 +63,6 @@ routes.post('/user/login', async (req, res) => {
     try {
         const user = await submitUserService.executeLogin(email);
 
-        console.log('user vindo da rota CERTA!');
-
         return res.status(201).json(user);
     } catch (error) {
         console.log(error)

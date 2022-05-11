@@ -43,15 +43,11 @@ describe('Submit user', () => {
         })).rejects.toThrow();
     })
 
-    it('Should not be able to login a user without email', async () => {
-        const email = ''
-
-        await expect(submitUser.login(email)).rejects.toThrow();
+    it('Should be able to made login with email', async () => {
+        await expect(submitUser.executeLogin('davisouza2001')).resolves.not.toThrow();
     })
 
-    it('Should be able to login a user with email', async () => {
-        const email = 'asdasdas'
-
-        expect(submitUser.login(email)).resolves;
+    it('Should be able to made login without email', async () => {
+        await expect(submitUser.executeLogin('')).rejects.toThrow();
     })
 })
