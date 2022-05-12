@@ -2,7 +2,7 @@ import { Pages } from '../../repositories/pages';
 interface SubmitPageServiceRequest {
     name: string,
     levelType: string,
-    idUser: number
+    idUser: string
 }
 
 export class SubmitPageService {
@@ -30,7 +30,7 @@ export class SubmitPageService {
         })
     }
 
-    async executeDelete(id: number) {
+    async executeDelete(id: string) {
         
         if(!id){
             throw new Error('Não foi possível deletar a página!')

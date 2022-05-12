@@ -12,7 +12,7 @@ export class PrismaPages implements Pages {
         })
     }
 
-    async delete(id: number) {
+    async delete(id: string) {
         await prisma.page.delete({
             where: {
                 id

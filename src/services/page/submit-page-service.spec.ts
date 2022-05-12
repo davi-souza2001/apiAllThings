@@ -16,7 +16,7 @@ describe('Submit user', () => {
 
         await expect(submitPage.executeCreate({
             name: '123',
-            idUser: 1,
+            idUser: 'asdasdasd2',
             levelType: 'Low'
         })).resolves.not.toThrow();
 
@@ -27,7 +27,7 @@ describe('Submit user', () => {
 
         await expect(submitPage.executeCreate({
             name: '',
-            idUser: 1,
+            idUser: 'asdasds',
             levelType: 'Low'
         })).rejects.toThrow();
     })
@@ -36,7 +36,7 @@ describe('Submit user', () => {
 
         await expect(submitPage.executeCreate({
             name: 'asdasd',
-            idUser: 0,
+            idUser: '',
             levelType: 'Low'
         })).rejects.toThrow();
     })
@@ -45,18 +45,18 @@ describe('Submit user', () => {
 
         await expect(submitPage.executeCreate({
             name: 'asdasd',
-            idUser: 1,
+            idUser: 'asdas',
             levelType: ''
         })).rejects.toThrow();
     })
 
     it('Should be able to delete a page', async () => {
 
-        await expect(submitPage.executeDelete(1)).resolves.not.toThrow();
+        await expect(submitPage.executeDelete('asdasd')).resolves.not.toThrow();
     })
 
     it('Should not be able to delete a page with invalid id', async () => {
 
-        await expect(submitPage.executeDelete(0)).rejects.toThrow();
+        await expect(submitPage.executeDelete('')).rejects.toThrow();
     })
 })

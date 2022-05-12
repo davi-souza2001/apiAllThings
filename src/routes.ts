@@ -1,5 +1,7 @@
 import express from 'express';
 
+import { SubmitNoteService } from './services/note/submit-note-service';
+import { PrismaNotes } from './repositories/prisma/prisma-notes';
 import { SubmitUserService } from './services/user/submit-user-service';
 import { SubmitPageService } from './services/page/submit-page-service';
 import { PrismaUsers } from './repositories/prisma/prisma-users';
@@ -103,8 +105,31 @@ routes.post('/page/delete', async (req, res) => {
 
         return res.status(201).json({ message: 'Página deletada!' });
     } catch (error) {
-        
+
         console.log(error)
-        return res.status(401).json({message: 'Algo de errado não está certo!'});
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+})
+
+routes.post('/note/create', async (req, res) => {
+    const { content, idPage, title, type } = req.body;
+
+    const prismaNotes = new PrismaNotes();
+
+    const submitnoteService = new SubmitNoteService(prismaNotes);
+
+    try {
+        await submitnoteService.executeCreate({
+            content,
+            idPage,
+            title,
+            type
+        })
+
+        return res.status(201).json({ message: 'Nota criada!' });
+    } catch (error) {
+
+        console.log(error);
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
     }
 })

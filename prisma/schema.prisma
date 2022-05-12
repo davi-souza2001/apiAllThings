@@ -8,27 +8,41 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
 
   email       String  @unique
   name        String
   imageUser   String?
   description String?
 
-  @@map("users")
   Page Page[]
+  @@map("users")
 }
 
 model Page {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
 
   name      String
   levelType String
-  idUser    Int
+  idUser    String
 
   user User @relation(fields: [idUser], references: [id])
 
+  Note Note[]
   @@map("pages")
+}
+
+model Note {
+  id String @id @default(uuid())
+
+  title   String
+  content String
+  type    String
+  idPage  String
+
+  page Page @relation(fields: [idPage], references: [id])
+
+  @@map("notes")
 }
 
 model Feedback {
