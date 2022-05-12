@@ -75,9 +75,9 @@ routes.post('/user/login', async (req, res) => {
 routes.post('/page/create', async (req, res) => {
     const { name, idUser, levelType } = req.body;
 
-    const prismaPages = new PrismaPages()
+    const prismaPages = new PrismaPages();
 
-    const submitpageService = new SubmitPageService(prismaPages)
+    const submitpageService = new SubmitPageService(prismaPages);
 
     try {
         await submitpageService.executeCreate({
@@ -89,6 +89,24 @@ routes.post('/page/create', async (req, res) => {
         return res.status(201).json({ message: 'Página criada!' });
     } catch (error) {
         console.log(error)
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+})
+
+routes.post('/page/get', async (req, res) => {
+    const idUser = req.body.idUser;
+
+    const prismaPages = new PrismaPages();
+
+    const submitpageService = new SubmitPageService(prismaPages);
+
+    try {
+        const pagesLoggedUser = await submitpageService.executeGet(idUser)
+
+        return res.status(201).json(pagesLoggedUser)
+    } catch (error) {
+        console.log(error)
+
         return res.status(401).json({ message: 'Algo de errado não está certo!' });
     }
 })

@@ -5,4 +5,4 @@ build 1:36:06
 <!-- usar para deploy: 
 npx prisma migrate && npm run start -->
 
-<!-- asd -->
+<!-- Melhorar função de delete, se tabela pai tiver filha não pode ser deletada -->

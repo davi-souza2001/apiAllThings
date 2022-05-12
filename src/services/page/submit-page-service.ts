@@ -30,9 +30,19 @@ export class SubmitPageService {
         })
     }
 
+    async executeGet(idUser: string) {
+        if (!idUser) {
+            throw new Error('Não foi possível buscar as páginas!')
+        }
+
+        const pages = await this.pagesRepository.get(idUser)
+
+        return pages
+    }
+
     async executeDelete(id: string) {
-        
-        if(!id){
+
+        if (!id) {
             throw new Error('Não foi possível deletar a página!')
         }
 

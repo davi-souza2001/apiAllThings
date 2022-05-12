@@ -12,6 +12,16 @@ export class PrismaPages implements Pages {
         })
     }
 
+    async get(idUser: string) {
+        const pages = await prisma.page.findMany({
+            where:{
+                idUser
+            }
+        })
+
+        return pages
+    }
+
     async delete(id: string) {
         await prisma.page.delete({
             where: {

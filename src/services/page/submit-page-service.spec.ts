@@ -1,12 +1,14 @@
 import { SubmitPageService } from '../page/submit-page-service';
 
 const createSubmitPageSpy = jest.fn();
+const getSubmitPageSpy = jest.fn();
 const deleteSubmitPageSpy = jest.fn();
 
 const submitPage = new SubmitPageService(
     {
         create: createSubmitPageSpy,
-        delete: deleteSubmitPageSpy
+        get: getSubmitPageSpy,
+        delete: deleteSubmitPageSpy,
     }
 )
 
@@ -58,5 +60,15 @@ describe('Submit user', () => {
     it('Should not be able to delete a page with invalid id', async () => {
 
         await expect(submitPage.executeDelete('')).rejects.toThrow();
+    })
+
+    it('Should be able to get the pages that belongs a user', async () => {
+
+        await expect(submitPage.executeGet('asd')).resolves.not.toThrow();
+    })
+
+    it('Should not be able to get the pages that belongs a user', async () => {
+
+        await expect(submitPage.executeGet('')).rejects.toThrow();
     })
 })
