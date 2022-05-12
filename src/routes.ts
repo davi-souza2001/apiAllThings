@@ -7,7 +7,6 @@ import { NodemailerMailAdapter } from './adapters/nodemailer/nodemailer-mail-ada
 import { PrismaFeedbacksRepository } from './repositories/prisma/prisma-feedbacks-repository';
 import { SubmitFeedbackService } from './services/feedback/submit-feedback-service';
 import { PrismaPages } from './repositories/prisma/prisma-pages';
-import { prisma } from './prisma';
 
 export const routes = express.Router();
 
@@ -89,5 +88,23 @@ routes.post('/page/create', async (req, res) => {
     } catch (error) {
         console.log(error)
         return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+})
+
+routes.post('/page/delete', async (req, res) => {
+    const id = req.body.id;
+
+    const prismaPages = new PrismaPages();
+
+    const submitpageService = new SubmitPageService(prismaPages);
+
+    try {
+        await submitpageService.executeDelete(id);
+
+        return res.status(201).json({ message: 'Página deletada!' });
+    } catch (error) {
+        
+        console.log(error)
+        return res.status(401).json({message: 'Algo de errado não está certo!'});
     }
 })

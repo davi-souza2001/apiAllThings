@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652309956139" clover="3.2.0">
-  <project timestamp="1652309956139" name="All files">
-    <metrics statements="121" coveredstatements="121" conditionals="21" coveredconditionals="21" methods="7" coveredmethods="7" elements="149" coveredelements="149" complexity="0" loc="121" ncloc="121" packages="3" files="3" classes="3"/>
+<coverage generated="1652315182746" clover="3.2.0">
+  <project timestamp="1652315182746" name="All files">
+    <metrics statements="130" coveredstatements="130" conditionals="23" coveredconditionals="23" methods="8" coveredmethods="8" elements="161" coveredelements="161" complexity="0" loc="130" ncloc="130" packages="3" files="3" classes="3"/>
     <package name="feedback">
       <metrics statements="46" coveredstatements="46" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
-      <file name="submit-feedback-service.ts" path="D:\1-PROGRAMATION\2temporarios\apiAllThings\src\services\feedback\submit-feedback-service.ts">
+      <file name="submit-feedback-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\feedback\submit-feedback-service.ts">
         <metrics statements="46" coveredstatements="46" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -55,9 +55,9 @@
       </file>
     </package>
     <package name="page">
-      <metrics statements="32" coveredstatements="32" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
-      <file name="submit-page-service.ts" path="D:\1-PROGRAMATION\2temporarios\apiAllThings\src\services\page\submit-page-service.ts">
-        <metrics statements="32" coveredstatements="32" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <metrics statements="41" coveredstatements="41" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
+      <file name="submit-page-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\page\submit-page-service.ts">
+        <metrics statements="41" coveredstatements="41" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -90,11 +90,20 @@
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
     <package name="user">
       <metrics statements="43" coveredstatements="43" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
-      <file name="submit-user-service.ts" path="D:\1-PROGRAMATION\2temporarios\apiAllThings\src\services\user\submit-user-service.ts">
+      <file name="submit-user-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\user\submit-user-service.ts">
         <metrics statements="43" coveredstatements="43" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>

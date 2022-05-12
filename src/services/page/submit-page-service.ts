@@ -29,4 +29,13 @@ export class SubmitPageService {
             levelType
         })
     }
+
+    async executeDelete(id: number) {
+        
+        if(!id){
+            throw new Error('Não foi possível deletar a página!')
+        }
+
+        await this.pagesRepository.delete(id)
+    }
 }

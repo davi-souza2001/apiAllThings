@@ -6,4 +6,5 @@ export interface PageCreateData{
 
 export interface Pages{
     create: (data: PageCreateData) => Promise<void>
+    delete: (id: number) => Promise<void>
 }
