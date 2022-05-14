@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652397817209" clover="3.2.0">
-  <project timestamp="1652397817209" name="All files">
-    <metrics statements="177" coveredstatements="177" conditionals="34" coveredconditionals="34" methods="11" coveredmethods="11" elements="222" coveredelements="222" complexity="0" loc="177" ncloc="177" packages="4" files="4" classes="4"/>
+<coverage generated="1652572667306" clover="3.2.0">
+  <project timestamp="1652572667306" name="All files">
+    <metrics statements="189" coveredstatements="189" conditionals="40" coveredconditionals="40" methods="12" coveredmethods="12" elements="241" coveredelements="241" complexity="0" loc="189" ncloc="189" packages="4" files="4" classes="4"/>
     <package name="feedback">
       <metrics statements="46" coveredstatements="46" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
-      <file name="submit-feedback-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\feedback\submit-feedback-service.ts">
+      <file name="submit-feedback-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\feedback\submit-feedback-service.ts">
         <metrics statements="46" coveredstatements="46" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -55,9 +55,9 @@
       </file>
     </package>
     <package name="note">
-      <metrics statements="37" coveredstatements="37" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
-      <file name="submit-note-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\note\submit-note-service.ts">
-        <metrics statements="37" coveredstatements="37" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
+      <metrics statements="49" coveredstatements="49" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+      <file name="submit-note-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\note\submit-note-service.ts">
+        <metrics statements="49" coveredstatements="49" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -95,12 +95,24 @@
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
     </package>
     <package name="page">
-      <metrics statements="51" coveredstatements="51" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
-      <file name="submit-page-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\page\submit-page-service.ts">
-        <metrics statements="51" coveredstatements="51" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
+      <metrics statements="51" coveredstatements="51" conditionals="13" coveredconditionals="13" methods="4" coveredmethods="4"/>
+      <file name="submit-page-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\page\submit-page-service.ts">
+        <metrics statements="51" coveredstatements="51" conditionals="13" coveredconditionals="13" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -134,30 +146,30 @@
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="37" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="45" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
       </file>
     </package>
     <package name="user">
-      <metrics statements="43" coveredstatements="43" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
-      <file name="submit-user-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\apiAllThings\src\services\user\submit-user-service.ts">
-        <metrics statements="43" coveredstatements="43" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+      <metrics statements="43" coveredstatements="43" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+      <file name="submit-user-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\user\submit-user-service.ts">
+        <metrics statements="43" coveredstatements="43" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -192,14 +204,14 @@
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="35" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="35" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="38" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
       </file>
     </package>

@@ -12,4 +12,14 @@ export class PrismaNotes implements Notes {
             }
         })
     };
+
+    async get(idPage: string) {
+        const notes = await prisma.note.findMany({
+            where:{
+                idPage
+            }
+        })
+
+        return notes
+    }
 }

@@ -43,6 +43,13 @@ describe('Submit user', () => {
         })).rejects.toThrow();
     })
 
+    it('Should be able to submit a user', async () => {
+
+        await expect(submitUser.executeLogin('sadas')).resolves.not.toThrow();
+
+        expect(createLoginSpy).toHaveBeenCalled();
+    })
+
     it('Should be able to made login with email', async () => {
         await expect(submitUser.executeLogin('davisouza2001')).resolves.not.toThrow();
     })

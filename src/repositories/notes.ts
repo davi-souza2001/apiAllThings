@@ -7,4 +7,5 @@ export interface NoteCreateData{
 
 export interface Notes{
     create: (data: NoteCreateData) => Promise<void>
+    get: (idPage: string) => Promise<any>
 }

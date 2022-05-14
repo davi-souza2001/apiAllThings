@@ -34,4 +34,16 @@ export class SubmitNoteService {
             type
         })
     }
+
+    async executeGet(request: string) {
+        const idPage = request
+
+        if (!idPage) {
+            throw new Error('Diga à quem sua nota pertence!')
+        }
+
+        const notes = await this.notesRepository.get(idPage)
+
+        return notes
+    }
 }

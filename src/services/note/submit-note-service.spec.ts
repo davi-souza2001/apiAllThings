@@ -1,11 +1,12 @@
 import { SubmitNoteService } from '../note/submit-note-service';
 
-const createSubmitPageSpy = jest.fn();
-const deleteSubmitPageSpy = jest.fn();
+const createSubmitNoteSpy = jest.fn();
+const getSubmitNoteSpy = jest.fn();
 
 const submitNote = new SubmitNoteService(
     {
-        create: createSubmitPageSpy,
+        create: createSubmitNoteSpy,
+        get: getSubmitNoteSpy
     }
 )
 
@@ -20,7 +21,7 @@ describe('Submit user', () => {
             idPage: 'asdsa'
         })).resolves.not.toThrow();
 
-        expect(createSubmitPageSpy).toHaveBeenCalled();
+        expect(createSubmitNoteSpy).toHaveBeenCalled();
     })
 
     it('Should not be able to submit a note without content', async () => {
@@ -61,5 +62,22 @@ describe('Submit user', () => {
             type: 'asdas',
             idPage: ''
         })).rejects.toThrow()
+    })
+
+    it('Should be able to get the note', async () => {
+
+        await expect(submitNote.executeGet('asd')).resolves.not.toThrow();
+
+        expect(getSubmitNoteSpy).toHaveBeenCalled();
+    })
+
+    it('Should be able to get a note', async () => {
+
+        await expect(submitNote.executeGet('asdsa')).resolves.not.toThrow();
+    })
+
+    it('Should not be able to get a note without idPage', async () => {
+
+        await expect(submitNote.executeGet('')).rejects.toThrow()
     })
 })

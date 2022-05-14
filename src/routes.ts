@@ -151,3 +151,22 @@ routes.post('/note/create', async (req, res) => {
         return res.status(401).json({ message: 'Algo de errado não está certo!' });
     }
 })
+
+routes.post('/note/get', async (req, res) => {
+    const idPage = req.body.idPage;
+
+    const prismaNotes = new PrismaNotes();
+
+    const submitnoteService = new SubmitNoteService(prismaNotes);
+
+    try {
+        const notes= await submitnoteService.executeGet(idPage);
+
+        return res.status(201).json(notes);
+
+    } catch (error) {
+        console.log(error);
+
+        return res.status(401).json({ message: 'Algo de errado não está certo!' })
+    }
+})

@@ -52,6 +52,13 @@ describe('Submit user', () => {
         })).rejects.toThrow();
     })
 
+    it('Should be able to delete the page', async () => {
+
+        await expect(submitPage.executeDelete('asd')).resolves.not.toThrow();
+
+        expect(deleteSubmitPageSpy).toHaveBeenCalled();
+    })
+
     it('Should be able to delete a page', async () => {
 
         await expect(submitPage.executeDelete('asdasd')).resolves.not.toThrow();
@@ -60,6 +67,13 @@ describe('Submit user', () => {
     it('Should not be able to delete a page with invalid id', async () => {
 
         await expect(submitPage.executeDelete('')).rejects.toThrow();
+    })
+
+    it('Should be able to get the page', async () => {
+
+        await expect(submitPage.executeGet('asd')).resolves.not.toThrow();
+
+        expect(getSubmitPageSpy).toHaveBeenCalled();
     })
 
     it('Should be able to get the pages that belongs a user', async () => {
