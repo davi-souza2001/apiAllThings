@@ -160,10 +160,28 @@ routes.post('/note/get', async (req, res) => {
     const submitnoteService = new SubmitNoteService(prismaNotes);
 
     try {
-        const notes= await submitnoteService.executeGet(idPage);
+        const notes = await submitnoteService.executeGet(idPage);
 
         return res.status(201).json(notes);
 
+    } catch (error) {
+        console.log(error);
+
+        return res.status(401).json({ message: 'Algo de errado não está certo!' })
+    }
+})
+
+routes.post('/note/delete', async (req, res) => {
+    const id = req.body.id;
+
+    const prismaNotes = new PrismaNotes();
+
+    const submitnoteService = new SubmitNoteService(prismaNotes);
+
+    try {
+        await submitnoteService.executeDelete(id);
+
+        return res.status(201).json({ message: 'Nota deletada!' });
     } catch (error) {
         console.log(error);
 

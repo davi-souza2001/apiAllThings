@@ -2,11 +2,13 @@ import { SubmitNoteService } from '../note/submit-note-service';
 
 const createSubmitNoteSpy = jest.fn();
 const getSubmitNoteSpy = jest.fn();
+const deleteSubmitNoteSpy = jest.fn();
 
 const submitNote = new SubmitNoteService(
     {
         create: createSubmitNoteSpy,
-        get: getSubmitNoteSpy
+        get: getSubmitNoteSpy,
+        delete: deleteSubmitNoteSpy
     }
 )
 
@@ -79,5 +81,17 @@ describe('Submit user', () => {
     it('Should not be able to get a note without idPage', async () => {
 
         await expect(submitNote.executeGet('')).rejects.toThrow()
+    })
+
+    it('Should be able to delete the note', async () => {
+
+        await expect(submitNote.executeDelete('asdsa')).resolves.not.toThrow();
+
+        expect(deleteSubmitNoteSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to delete a note without id', async () => {
+
+        await expect(submitNote.executeDelete('')).rejects.toThrow()
     })
 })

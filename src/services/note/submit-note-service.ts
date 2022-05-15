@@ -36,14 +36,24 @@ export class SubmitNoteService {
     }
 
     async executeGet(request: string) {
-        const idPage = request
+        const idPage = request;
 
         if (!idPage) {
             throw new Error('Diga à quem sua nota pertence!')
         }
 
-        const notes = await this.notesRepository.get(idPage)
+        const notes = await this.notesRepository.get(idPage);
 
         return notes
+    }
+
+    async executeDelete(request: string) {
+        const id = request;
+
+        if (!id) {
+            throw new Error('Diga o id da nota que deseja deletar!')
+        }
+
+        await this.notesRepository.delete(id);
     }
 }

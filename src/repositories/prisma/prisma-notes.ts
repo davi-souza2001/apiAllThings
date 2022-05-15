@@ -15,11 +15,19 @@ export class PrismaNotes implements Notes {
 
     async get(idPage: string) {
         const notes = await prisma.note.findMany({
-            where:{
+            where: {
                 idPage
             }
         })
 
         return notes
+    }
+
+    async delete(id: string) {
+        await prisma.note.delete({
+            where: {
+                id
+            }
+        })
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652572667306" clover="3.2.0">
-  <project timestamp="1652572667306" name="All files">
-    <metrics statements="189" coveredstatements="189" conditionals="40" coveredconditionals="40" methods="12" coveredmethods="12" elements="241" coveredelements="241" complexity="0" loc="189" ncloc="189" packages="4" files="4" classes="4"/>
+<coverage generated="1652573279349" clover="3.2.0">
+  <project timestamp="1652573279351" name="All files">
+    <metrics statements="199" coveredstatements="199" conditionals="42" coveredconditionals="42" methods="13" coveredmethods="13" elements="254" coveredelements="254" complexity="0" loc="199" ncloc="199" packages="4" files="4" classes="4"/>
     <package name="feedback">
       <metrics statements="46" coveredstatements="46" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
       <file name="submit-feedback-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\feedback\submit-feedback-service.ts">
@@ -55,9 +55,9 @@
       </file>
     </package>
     <package name="note">
-      <metrics statements="49" coveredstatements="49" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+      <metrics statements="59" coveredstatements="59" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
       <file name="submit-note-service.ts" path="D:\1-PROGRAMATION\2temporarios\allThings\backAllThings\src\services\note\submit-note-service.ts">
-        <metrics statements="49" coveredstatements="49" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+        <metrics statements="59" coveredstatements="59" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -107,6 +107,16 @@
         <line num="47" count="2" type="stmt"/>
         <line num="48" count="2" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
       </file>
     </package>
     <package name="page">
