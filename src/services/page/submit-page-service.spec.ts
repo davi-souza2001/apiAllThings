@@ -3,11 +3,13 @@ import { SubmitPageService } from '../page/submit-page-service';
 const createSubmitPageSpy = jest.fn();
 const getSubmitPageSpy = jest.fn();
 const deleteSubmitPageSpy = jest.fn();
+const updateSubmitPageSpy = jest.fn();
 
 const submitPage = new SubmitPageService(
     {
         create: createSubmitPageSpy,
         get: getSubmitPageSpy,
+        update: updateSubmitPageSpy,
         delete: deleteSubmitPageSpy,
     }
 )
@@ -84,5 +86,52 @@ describe('Submit user', () => {
     it('Should not be able to get the pages that belongs a user', async () => {
 
         await expect(submitPage.executeGet('')).rejects.toThrow();
+    })
+
+    it('Should be able to update the page', async () => {
+
+        await expect(submitPage.executeUpdate('asdasd', {
+            name: '123',
+            idUser: 'asdasdasd2',
+            levelType: 'Low'
+        })).resolves.not.toThrow();
+
+        expect(updateSubmitPageSpy).toHaveBeenCalled();
+    })
+
+    it('Should not be able to update the page without name', async () => {
+
+        await expect(submitPage.executeUpdate('asdasd', {
+            name: '',
+            idUser: 'asdasds',
+            levelType: 'Low'
+        })).rejects.toThrow();
+    })
+
+    it('Should not be able to update the page without idUser', async () => {
+
+        await expect(submitPage.executeUpdate('asdasd', {
+            name: 'asdasd',
+            idUser: '',
+            levelType: 'Low'
+        })).rejects.toThrow();
+    })
+
+    it('Should not be able to update the page without levelType', async () => {
+
+        await expect(submitPage.executeUpdate('asdasd', {
+            name: 'asdasd',
+            idUser: 'asdas',
+            levelType: ''
+        })).rejects.toThrow();
+    })
+
+    it('Should not be able to update the page with invalid id', async () => {
+
+        await expect(submitPage.executeUpdate('', {
+            name: 'asdasd',
+            idUser: 'asdas',
+            levelType: 'Low'
+        })).rejects.toThrow();
     })
 })

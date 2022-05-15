@@ -40,6 +40,29 @@ export class SubmitPageService {
         return pages
     }
 
+    async executeUpdate(id: string, request: SubmitPageServiceRequest) {
+        const { name, levelType, idUser } = request;
+
+        if (!id) {
+            throw new Error('Diga o id da sua página!')
+        }
+        if (!name) {
+            throw new Error('Diga um nome para sua página!')
+        }
+        if (!idUser) {
+            throw new Error('Faça login para criar uma nota!')
+        }
+        if (!levelType) {
+            throw new Error('Seleciona a prioridade da tua página!')
+        }
+
+        await this.pagesRepository.update(id, {
+            name,
+            levelType,
+            idUser
+        })
+    }
+
     async executeDelete(id: string) {
 
         if (!id) {

@@ -111,6 +111,28 @@ routes.post('/page/get', async (req, res) => {
     }
 })
 
+routes.patch('/page/update', async (req, res) => {
+    const { id, name, idUser, levelType } = req.body;
+
+    const prismaPages = new PrismaPages();
+
+    const submitpageService = new SubmitPageService(prismaPages);
+
+    try {
+        await submitpageService.executeUpdate(id, {
+            name,
+            idUser,
+            levelType
+        })
+
+        return res.status(201).json({ message: 'Página atualizada!' });
+    } catch (error) {
+        console.log(error)
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+
+})
+
 routes.post('/page/delete', async (req, res) => {
     const id = req.body.id;
 
