@@ -1,4 +1,4 @@
-import { SubmitNoteService } from '../note/submit-note-service';
+import { SubmitNoteService } from '../services/note/submit-note-service';
 
 const createSubmitNoteSpy = jest.fn();
 const getSubmitNoteSpy = jest.fn();

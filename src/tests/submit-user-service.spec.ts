@@ -1,5 +1,5 @@
-import { PrismaUsers } from '../../repositories/prisma/prisma-users';
-import { SubmitUserService } from '../user/submit-user-service';
+import { PrismaUsers } from '../repositories/prisma/prisma-users';
+import { SubmitUserService } from '../services/user/submit-user-service';
 
 const createFeedbackSpy = jest.fn();
 const createLoginSpy = jest.fn();

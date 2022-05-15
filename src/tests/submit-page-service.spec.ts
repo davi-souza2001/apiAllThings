@@ -1,4 +1,4 @@
-import { SubmitPageService } from '../page/submit-page-service';
+import { SubmitPageService } from '../services/page/submit-page-service';
 
 const createSubmitPageSpy = jest.fn();
 const getSubmitPageSpy = jest.fn();
