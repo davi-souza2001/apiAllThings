@@ -47,6 +47,34 @@ export class SubmitNoteService {
         return notes
     }
 
+    async executeUpdate(id: string, request: SubmitNoteServiceRequest) {
+        const { content, idPage, title, type } = request;
+
+        if (!id) {
+            throw new Error('Diga o id da nota que deseja atualizar!')
+        }
+        if (!content) {
+            throw new Error('Diga um conteúdo para sua nota!')
+        }
+        if (!idPage) {
+            throw new Error('Diga à quem sua nota pertence!')
+        }
+        if (!title) {
+            throw new Error('Diga um título para sua nota!')
+        }
+        if (!type) {
+            throw new Error('Diga o tipo da sua nota!')
+        }
+
+        await this.notesRepository.update(id, {
+            content,
+            idPage,
+            title,
+            type
+        })
+
+    }
+
     async executeDelete(request: string) {
         const id = request;
 

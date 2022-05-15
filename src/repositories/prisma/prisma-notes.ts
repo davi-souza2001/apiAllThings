@@ -23,6 +23,20 @@ export class PrismaNotes implements Notes {
         return notes
     }
 
+    async update(id: string, { content, idPage, title, type }: NoteCreateData) {
+        await prisma.note.update({
+            where: {
+                id
+            },
+            data: {
+                content,
+                title,
+                type,
+                idPage
+            }
+        })
+    }
+
     async delete(id: string) {
         await prisma.note.delete({
             where: {

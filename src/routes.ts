@@ -193,6 +193,31 @@ routes.post('/note/get', async (req, res) => {
     }
 })
 
+routes.patch('/note/update', async (req, res) => {
+    const { id, content, idPage, title, type } = req.body;
+
+    const prismaNotes = new PrismaNotes();
+
+    const submitnoteService = new SubmitNoteService(prismaNotes);
+
+    try {
+
+        await submitnoteService.executeUpdate(id, {
+            content,
+            idPage,
+            title,
+            type
+        })
+
+        return res.status(201).json({ message: 'Nota atualizada!' });
+
+    } catch (error) {
+        console.log(error);
+
+        return res.status(401).json({ message: 'Algo de errado não está certo!' })
+    }
+})
+
 routes.post('/note/delete', async (req, res) => {
     const id = req.body.id;
 
