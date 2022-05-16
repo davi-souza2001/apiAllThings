@@ -20,6 +20,10 @@ Unit tests were done using Jest. Through it, the application is 100% tested!
 
 ![Screenshot_3](https://user-images.githubusercontent.com/77704994/168492174-160d1787-4bb0-4357-9d68-902790804978.png)
 
+## Database 
+
+The database used was postgreSQL!
+
 ## Routes
 
 Finally, **Prisma** was used to make the connection to the database and also for the server routes!
