@@ -55,14 +55,14 @@ routes.post('/user/create', async (req, res) => {
 })
 
 routes.post('/user/login', async (req, res) => {
-    const email = req.body.email;
+    const id = req.body.id;
 
     const prismaUsers = new PrismaUsers();
 
     const submitUserService = new SubmitUserService(prismaUsers);
 
     try {
-        const user = await submitUserService.executeLogin(email);
+        const user = await submitUserService.executeLogin(id);
 
         return res.status(201).json(user);
     } catch (error) {
