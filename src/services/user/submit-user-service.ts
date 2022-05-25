@@ -31,12 +31,12 @@ export class SubmitUserService {
         })
     }
 
-    async executeLogin(id: string) {
-        if (!id){
-            throw new Error('Seu id é obrigatório!')
+    async executeLogin(email: string) {
+        if (!email){
+            throw new Error('Seu email é obrigatório!')
         }
 
-        const user = await this.usersRepository.login(id)
+        const user = await this.usersRepository.login(email)
 
         return user
     }
