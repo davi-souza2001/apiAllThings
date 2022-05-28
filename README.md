@@ -29,3 +29,10 @@ The database used was postgreSQL!
 Finally, **Prisma** was used to make the connection to the database and also for the server routes!
 
 ![transferir](https://user-images.githubusercontent.com/77704994/168492240-8b11e685-3dc6-4173-b56d-c4e63ced54b0.png)
+
+## Techs
+<div>
+    <img alt="REACT" width="120" src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+    <img alt="NODE" width="105" src="https://img.shields.io/badge/node-000?style=for-the-badge&logo=node.js&logoColor=white"/>
+    <img alt="FIREBASE" width="135" src="https://img.shields.io/badge/prisma-FFCA28?style=for-the-badge&logo=prisma&logoColor=black"/>
+ </div>
