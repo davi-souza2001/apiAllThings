@@ -1,7 +1,8 @@
 export interface PageCreateData {
     name: string,
     levelType: string,
-    idUser: string
+    idUser: string,
+    phase: string
 }
 
 export interface Pages {
@@ -9,4 +10,5 @@ export interface Pages {
     get: (idUser: string) => Promise<any>
     update: (id: string, data: PageCreateData) => Promise<void>
     delete: (id: string) => Promise<void>
+    changePhase: (id: string, phase: string) => Promise<void>
 }

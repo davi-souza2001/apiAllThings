@@ -73,7 +73,7 @@ routes.post('/user/login', async (req, res) => {
 })
 
 routes.post('/page/create', async (req, res) => {
-    const { name, idUser, levelType } = req.body;
+    const { name, idUser, levelType, phase } = req.body;
 
     const prismaPages = new PrismaPages();
 
@@ -83,7 +83,8 @@ routes.post('/page/create', async (req, res) => {
         await submitpageService.executeCreate({
             name,
             idUser,
-            levelType
+            levelType,
+            phase
         })
 
         return res.status(201).json({ message: 'Página criada!' });
@@ -112,7 +113,7 @@ routes.post('/page/get', async (req, res) => {
 })
 
 routes.patch('/page/update', async (req, res) => {
-    const { id, name, idUser, levelType } = req.body;
+    const { id, name, idUser, levelType, phase } = req.body;
 
     const prismaPages = new PrismaPages();
 
@@ -122,7 +123,8 @@ routes.patch('/page/update', async (req, res) => {
         await submitpageService.executeUpdate(id, {
             name,
             idUser,
-            levelType
+            levelType,
+            phase
         })
 
         return res.status(201).json({ message: 'Página atualizada!' });

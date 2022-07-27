@@ -2,12 +2,13 @@ import { prisma } from '../../prisma';
 import { PageCreateData, Pages } from '../pages';
 
 export class PrismaPages implements Pages {
-    async create({ idUser, levelType, name }: PageCreateData) {
+    async create({ idUser, levelType, name, phase }: PageCreateData) {
         await prisma.page.create({
             data: {
                 name,
                 levelType,
-                idUser
+                idUser,
+                phase
             }
         })
     }
@@ -39,6 +40,17 @@ export class PrismaPages implements Pages {
         await prisma.page.delete({
             where: {
                 id
+            }
+        })
+    }
+
+    async changePhase(id: string, phase: string) {
+        await prisma.page.update({
+            where: {
+                id
+            },
+            data: {
+                phase
             }
         })
     }

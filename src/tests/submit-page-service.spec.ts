@@ -4,6 +4,7 @@ const createSubmitPageSpy = jest.fn();
 const getSubmitPageSpy = jest.fn();
 const deleteSubmitPageSpy = jest.fn();
 const updateSubmitPageSpy = jest.fn();
+const changePhasePageSpy = jest.fn();
 
 const submitPage = new SubmitPageService(
     {
@@ -11,6 +12,7 @@ const submitPage = new SubmitPageService(
         get: getSubmitPageSpy,
         update: updateSubmitPageSpy,
         delete: deleteSubmitPageSpy,
+        changePhase: changePhasePageSpy
     }
 )
 
@@ -21,7 +23,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeCreate({
             name: '123',
             idUser: 'asdasdasd2',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'test'
         })).resolves.not.toThrow();
 
         expect(createSubmitPageSpy).toHaveBeenCalled();
@@ -32,7 +35,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeCreate({
             name: '',
             idUser: 'asdasds',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'test'
         })).rejects.toThrow();
     })
 
@@ -41,7 +45,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeCreate({
             name: 'asdasd',
             idUser: '',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'test'
         })).rejects.toThrow();
     })
 
@@ -50,8 +55,19 @@ describe('Submit user', () => {
         await expect(submitPage.executeCreate({
             name: 'asdasd',
             idUser: 'asdas',
-            levelType: ''
+            levelType: '',
+            phase: 'test'
         })).rejects.toThrow();
+    })
+
+    it('Should not be able to submit a page without phase', async () => {
+
+        await expect(submitPage.executeCreate({
+            name: 'asdasd',
+            idUser: 'asdas',
+            levelType: 'test',
+            phase: ''
+        })).toBeTruthy();
     })
 
     it('Should be able to delete the page', async () => {
@@ -93,7 +109,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeUpdate('asdasd', {
             name: '123',
             idUser: 'asdasdasd2',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'completed'
         })).resolves.not.toThrow();
 
         expect(updateSubmitPageSpy).toHaveBeenCalled();
@@ -104,7 +121,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeUpdate('asdasd', {
             name: '',
             idUser: 'asdasds',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'completed'
         })).rejects.toThrow();
     })
 
@@ -113,7 +131,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeUpdate('asdasd', {
             name: 'asdasd',
             idUser: '',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'completed'
         })).rejects.toThrow();
     })
 
@@ -122,7 +141,18 @@ describe('Submit user', () => {
         await expect(submitPage.executeUpdate('asdasd', {
             name: 'asdasd',
             idUser: 'asdas',
-            levelType: ''
+            levelType: '',
+            phase: 'completed'
+        })).rejects.toThrow();
+    })
+
+    it('Should not be able to update the page without phase', async () => {
+
+        await expect(submitPage.executeUpdate('asdasd', {
+            name: 'asdasd',
+            idUser: 'asdas',
+            levelType: 'test',
+            phase: ''
         })).rejects.toThrow();
     })
 
@@ -131,7 +161,8 @@ describe('Submit user', () => {
         await expect(submitPage.executeUpdate('', {
             name: 'asdasd',
             idUser: 'asdas',
-            levelType: 'Low'
+            levelType: 'Low',
+            phase: 'test'
         })).rejects.toThrow();
     })
 })

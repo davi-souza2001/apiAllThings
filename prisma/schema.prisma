@@ -16,6 +16,7 @@ model User {
   description String?
 
   Page Page[]
+
   @@map("users")
 }
 
@@ -25,10 +26,12 @@ model Page {
   name      String
   levelType String
   idUser    String
+  phase     String
 
   user User @relation(fields: [idUser], references: [id])
 
   Note Note[]
+
   @@map("pages")
 }
 
