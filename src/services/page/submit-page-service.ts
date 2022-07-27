@@ -77,4 +77,31 @@ export class SubmitPageService {
 
         await this.pagesRepository.delete(id)
     }
+
+    async executaChangePhase(id: string, request: SubmitPageServiceRequest) {
+        const { name, levelType, idUser, phase } = request;
+
+        if (!id) {
+            throw new Error('Diga o id da sua página!')
+        }
+        if (!name) {
+            throw new Error('Diga um nome para sua página!')
+        }
+        if (!idUser) {
+            throw new Error('Faça login para criar uma nota!')
+        }
+        if (!levelType) {
+            throw new Error('Seleciona a prioridade da sua página!')
+        }
+        if (!phase) {
+            throw new Error('Selecione o estado da sua página!')
+        }
+
+        await this.pagesRepository.changePhase(id, {
+            name,
+            levelType,
+            idUser,
+            phase
+        })
+    }
 }

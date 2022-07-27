@@ -44,12 +44,15 @@ export class PrismaPages implements Pages {
         })
     }
 
-    async changePhase(id: string, phase: string) {
+    async changePhase(id: string, { levelType, name, idUser, phase }: PageCreateData) {
         await prisma.page.update({
             where: {
                 id
             },
             data: {
+                name,
+                levelType,
+                idUser,
                 phase
             }
         })

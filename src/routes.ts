@@ -135,6 +135,38 @@ routes.patch('/page/update', async (req, res) => {
 
 })
 
+routes.patch('/page/changePhase', async (req, res) => {
+    const { id, name, idUser, levelType } = req.body;
+    let { phase } = req.body
+
+    const prismaPages = new PrismaPages();
+
+    const submitpageService = new SubmitPageService(prismaPages);
+
+    if (phase === 'processing') {
+        phase = 'completed'
+    } else if (phase === 'completed') {
+        phase = 'processing'
+    } else {
+        phase = ''
+    }
+
+    try {
+        await submitpageService.executaChangePhase(id, {
+            name,
+            idUser,
+            levelType,
+            phase
+        })
+
+        return res.status(201).json({ message: 'Página atualizada!' });
+    } catch (error) {
+        console.log(error)
+        return res.status(401).json({ message: 'Algo de errado não está certo!' });
+    }
+
+})
+
 routes.post('/page/delete', async (req, res) => {
     const id = req.body.id;
 

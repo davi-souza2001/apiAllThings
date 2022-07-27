@@ -10,5 +10,5 @@ export interface Pages {
     get: (idUser: string) => Promise<any>
     update: (id: string, data: PageCreateData) => Promise<void>
     delete: (id: string) => Promise<void>
-    changePhase: (id: string, phase: string) => Promise<void>
+    changePhase: (id: string, data: PageCreateData) => Promise<void>
 }
